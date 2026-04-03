@@ -3,7 +3,7 @@ import cors from "cors";
 import foodsRouter from "./routes/foods.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
@@ -12,7 +12,7 @@ app.use("/foods", foodsRouter);
 
 app.get("/", (_req, res) => {
   res.json({
-    name: "NaijaRecipes API",
+    name: "ChopAm API",
     version: "2.0.0",
     endpoints: {
       "GET /foods": "List all foods (query: q, region, tribe, category, tag, limit)",
@@ -27,4 +27,4 @@ app.get("/", (_req, res) => {
 
 app.use((_req, res) => res.status(404).json({ success: false, error: "Not found" }));
 
-app.listen(PORT, () => console.log(`🍲 NaijaRecipes API → http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(` ChopAm API → http://localhost:${PORT}`));
